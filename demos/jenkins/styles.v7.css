@@ -1,0 +1,77 @@
+:root {
+  --bg: #101820;
+  --panel: #182430;
+  --text: #f4f1ea;
+  --muted: #9aa7b2;
+  --accent: #3db8c1;
+  --cta: #d9773a;
+  --ok: #6dce8a;
+  --radius: 14px;
+  --pad: clamp(1rem, 4vw, 1.4rem);
+  --max: 40rem;
+  font-family: "DM Sans", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); line-height: 1.5; padding-bottom: 5.5rem; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); }
+.demo-banner {
+  background: #3f2a1e; color: #f5e6d8; font-size: 0.72rem; font-weight: 650;
+  text-align: center; padding: 0.55rem var(--pad);
+}
+.top {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0.85rem var(--pad); position: sticky; top: 0; z-index: 20;
+  background: rgba(16,24,32,0.94); backdrop-filter: blur(8px);
+  border-bottom: 1px solid #243444;
+}
+.logo { color: var(--text); text-decoration: none; font-weight: 800; font-size: 0.95rem; line-height: 1.2; }
+.logo span { display: block; font-weight: 500; color: var(--muted); font-size: 0.72rem; }
+.call-pill {
+  flex-shrink: 0; background: var(--cta); color: #fff; text-decoration: none; font-weight: 700;
+  font-size: 0.82rem; padding: 0.6rem 0.85rem; border-radius: 999px; min-height: 42px;
+  display: inline-flex; align-items: center;
+}
+main { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+.hero { padding: 1.7rem 0 1.2rem; }
+.eyebrow { text-transform: uppercase; letter-spacing: 0.09em; font-size: 0.68rem; color: var(--ok); font-weight: 700; margin: 0 0 0.5rem; }
+.hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.6rem, 6vw, 2.1rem); line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.7rem; }
+.lede { color: var(--muted); margin: 0 0 1.2rem; font-size: 1.02rem; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.2rem; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 48px;
+  padding: 0.75rem 1.1rem; border-radius: 999px; font-weight: 700; text-decoration: none;
+  border: none; cursor: pointer; font-size: 0.95rem;
+}
+.btn-primary { background: var(--cta); color: #fff; }
+.btn-ghost { background: transparent; color: var(--text); border: 1px solid #3a4d5c; }
+.btn-call-block { display: flex; width: 100%; margin-top: 0.85rem; background: #0f766e; color: #fff; }
+.trust { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.4rem; }
+.trust li { color: var(--muted); font-size: 0.9rem; padding-left: 1.2rem; position: relative; }
+.trust li::before { content: ""; position: absolute; left: 0; top: 0.45rem; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--ok); }
+.services, .area, .quote { padding: 1.45rem 0; border-top: 1px solid #243444; }
+h2 { font-family: "Fraunces", Georgia, serif; font-size: 1.3rem; margin: 0 0 0.95rem; }
+.grid { display: grid; gap: 0.7rem; }
+.grid article { background: var(--panel); border: 1px solid #243444; border-radius: var(--radius); padding: 1rem; }
+.grid h3 { margin: 0 0 0.3rem; font-size: 1.02rem; }
+.grid p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+.area p { color: var(--muted); margin: 0; }
+.lead { display: grid; gap: 0.7rem; background: var(--panel); border: 1px solid #243444; border-radius: var(--radius); padding: 1rem; }
+.lead label { display: grid; gap: 0.3rem; font-size: 0.85rem; font-weight: 650; color: var(--muted); }
+.lead input, .lead select {
+  min-height: 48px; border-radius: 12px; border: 1px solid #3a4d5c; background: #0c141c;
+  color: var(--text); padding: 0.65rem 0.75rem; font-size: 1rem;
+}
+.form-note { margin: 0; font-size: 0.78rem; color: #6b7a86; }
+footer { max-width: var(--max); margin: 0 auto; padding: 1.4rem var(--pad) 2rem; color: var(--muted); font-size: 0.88rem; border-top: 1px solid #243444; }
+footer p { margin: 0 0 0.35rem; }
+.fine { font-size: 0.76rem; }
+a.sticky-call { display: none !important; }
+.sticky-one {
+  position: fixed; left: 0.85rem; right: 0.85rem; bottom: 0.85rem; z-index: 50;
+  max-width: 26rem; margin: 0 auto;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 52px; padding: 0.7rem 1rem; border-radius: 999px;
+  background: var(--cta); color: #fff; font-weight: 750; text-decoration: none;
+  font-size: 0.9rem; text-align: center; box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+}
+@media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } }

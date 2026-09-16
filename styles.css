@@ -1,59 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,500&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap");
 
 :root {
-  --bg: #0f172a;
-  --card: #1e293b;
-  --text: #f8fafc;
-  --muted: #94a3b8;
-  --teal: #14b8a6;
-  --orange: #ea580c;
+  --bg: #f6f3ee;
+  --ink: #1a1a18;
+  --muted: #6b6560;
+  --card: #ffffff;
+  --line: #e6e0d6;
+  --accent: #0d5c63;
+  --accent-soft: #e7f3f4;
+  --cta: #c45c26;
+  --cta-ink: #fffaf6;
   --pad: 1.25rem;
-  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --max: 24rem;
+  --radius: 1.15rem;
+  --font: "DM Sans", system-ui, sans-serif;
+  --display: "Fraunces", Georgia, serif;
 }
 * { box-sizing: border-box; }
 body {
   margin: 0;
   min-height: 100dvh;
-  background: radial-gradient(1200px 600px at 50% -10%, #134e4a 0%, var(--bg) 55%);
-  color: var(--text);
-  line-height: 1.45;
-  padding-bottom: 5.5rem;
+  background:
+    radial-gradient(900px 420px at 50% -8%, #dceceb 0%, transparent 60%),
+    var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  line-height: 1.5;
+  padding-bottom: 5.75rem;
+  -webkit-font-smoothing: antialiased;
 }
 .bio {
-  max-width: 26rem;
+  max-width: var(--max);
   margin: 0 auto;
-  padding: 2rem var(--pad) 2.5rem;
+  padding: 2.25rem var(--pad) 2rem;
   text-align: center;
 }
 .kicker {
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.55rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  font-size: 0.68rem;
   font-weight: 700;
-  color: var(--teal);
+  color: var(--accent);
 }
-h1 { margin: 0 0 0.5rem; font-size: 1.75rem; }
-.tag { margin: 0 0 0.5rem; color: var(--muted); }
-.handle { margin: 0 0 1.5rem; }
-.handle a { color: var(--teal); font-weight: 700; }
-.links { display: grid; gap: 0.7rem; }
+h1 {
+  margin: 0 0 0.55rem;
+  font-family: var(--display);
+  font-size: clamp(1.85rem, 7vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+.tag { margin: 0 0 0.45rem; color: var(--muted); font-size: 1rem; }
+.handle { margin: 0 0 1.6rem; }
+.handle a { color: var(--accent); font-weight: 700; text-decoration: none; }
+.links { display: grid; gap: 0.65rem; }
 .link {
-  display: flex; align-items: center; justify-content: center; gap: 0.35rem;
-  min-height: 52px; padding: 0.85rem 1rem; border-radius: 999px;
-  background: var(--card); color: var(--text); text-decoration: none;
-  font-weight: 700; border: 1px solid #334155;
-}
-.link.primary { background: var(--orange); border-color: var(--orange); color: #fff; }
-.link.muted { color: #cbd5e1; font-size: 0.92rem; }
-.link.muted span { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
-.fine { margin: 1.5rem 0 0; font-size: 0.78rem; color: #64748b; }
-
-.sticky-one {
-  position: fixed; left: 0.75rem; right: 0.75rem; bottom: 0.75rem; z-index: 40;
-  max-width: 26rem; margin: 0 auto;
   display: flex; align-items: center; justify-content: center;
-  min-height: 52px; padding: 0.75rem 1rem; border-radius: 999px;
-  background: var(--orange); color: #fff; font-weight: 800; text-decoration: none;
-  font-size: 0.95rem; text-align: center;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+  min-height: 52px; padding: 0.85rem 1.05rem; border-radius: 999px;
+  background: var(--card); color: var(--ink); text-decoration: none;
+  font-weight: 650; font-size: 0.95rem;
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(26,26,24,0.03);
+}
+.link.primary {
+  background: var(--cta); border-color: var(--cta); color: var(--cta-ink);
+  box-shadow: 0 8px 22px rgba(196,92,38,0.28);
+}
+.link.muted { color: #4a4540; font-size: 0.9rem; }
+.link.muted span { color: var(--muted); font-weight: 600; font-size: 0.78rem; }
+.fine { margin: 1.6rem 0 0; font-size: 0.78rem; color: #8a837a; }
+.sticky-one {
+  position: fixed; left: 0.85rem; right: 0.85rem; bottom: 0.85rem; z-index: 40;
+  max-width: var(--max); margin: 0 auto;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 52px; padding: 0.8rem 1rem; border-radius: 999px;
+  background: var(--cta); color: var(--cta-ink); font-weight: 750;
+  text-decoration: none; font-size: 0.92rem; text-align: center;
+  box-shadow: 0 12px 30px rgba(196,92,38,0.32);
 }

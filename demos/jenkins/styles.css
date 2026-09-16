@@ -218,3 +218,19 @@ footer p { margin: 0 0 0.4rem; }
   .grid { grid-template-columns: 1fr 1fr; }
   .sticky-call { max-width: 22rem; left: 50%; right: auto; transform: translateX(-50%); }
 }
+
+
+.sticky-bar.mwr {
+  position: fixed; left: 0.75rem; right: 0.75rem; bottom: 0.75rem; z-index: 50;
+  display: grid; grid-template-columns: 1fr 1.35fr; gap: 0.45rem;
+  max-width: 26rem; margin: 0 auto;
+}
+.sticky-bar.mwr .sticky-call, .sticky-bar.mwr .sticky-walk {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 46px; border-radius: 999px; font-weight: 800; text-decoration: none;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35); font-size: 0.88rem;
+}
+.sticky-bar.mwr .sticky-call { background: #0f766e; color: #fff; }
+.sticky-bar.mwr .sticky-walk { background: #ea580c; color: #fff; }
+a.sticky-call:not(.mwr *) { bottom: 4.6rem !important; } /* nudge shop bar up if present */
+body { padding-bottom: 7rem !important; }

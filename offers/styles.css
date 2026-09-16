@@ -183,3 +183,33 @@ footer p { margin: 0 0 0.25rem; }
   .cards { grid-template-columns: repeat(3, 1fr); }
   .sticky { max-width: 22rem; left: 50%; right: auto; transform: translateX(-50%); }
 }
+
+
+.ask {
+  margin: 0.85rem 0 0;
+  padding: 0.7rem 0.8rem;
+  border-radius: 10px;
+  background: #ecfdf5;
+  border: 1px solid #99f6e4;
+  color: #115e59;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.sticky-bar {
+  position: fixed; left: var(--pad); right: var(--pad); bottom: 0.75rem; z-index: 40;
+  display: grid; grid-template-columns: 1fr 1.35fr; gap: 0.5rem;
+  max-width: 26rem; margin: 0 auto;
+}
+.sticky-call, .sticky-walk {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 48px; border-radius: 999px; font-weight: 800; text-decoration: none;
+  box-shadow: 0 12px 28px rgba(28, 25, 23, 0.18);
+}
+.sticky-call { background: var(--brand-2); color: #fff; }
+.sticky-walk { background: var(--brand); color: #fff; font-size: 0.88rem; }
+body { padding-bottom: 6rem; }
+.sticky { display: none; }
+@media (min-width: 700px) {
+  .sticky-bar { left: 50%; right: auto; transform: translateX(-50%); width: min(26rem, calc(100% - 2rem)); }
+}

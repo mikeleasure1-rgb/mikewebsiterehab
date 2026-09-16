@@ -103,3 +103,13 @@ footer p { margin: 0 0 0.4rem; }
 .sticky-bar.mwr .sticky-walk { background: #ea580c; color: #fff; }
 a.sticky-call:not(.mwr *) { bottom: 4.6rem !important; } /* nudge shop bar up if present */
 body { padding-bottom: 7rem !important; }
+
+.sticky-one {
+  position: fixed; left: 0.75rem; right: 0.75rem; bottom: 0.75rem; z-index: 50;
+  max-width: 26rem; margin: 0 auto;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 52px; padding: 0.7rem 1rem; border-radius: 999px;
+  background: #ea580c; color: #fff; font-weight: 800; text-decoration: none;
+  font-size: 0.92rem; text-align: center;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+}

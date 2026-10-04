@@ -7,6 +7,24 @@ document.addEventListener('click',function(e){
  if(e.target.closest('.demo-911'))toast('<strong>Demo:</strong> on the real site this button dials 911. In a real emergency, call 911 yourself once you are away from the car.');
 });
 
+/* ---- Open now (America/New_York): Mon-Fri 7 AM-6 PM ---- */
+(function(){
+ var el=document.getElementById('hours');if(!el)return;
+ var DN=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],O=7,C=18;
+ function now(){try{var p=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'numeric',minute:'numeric',hourCycle:'h23'}).formatToParts(new Date()),o={};p.forEach(function(x){o[x.type]=x.value});return{d:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(o.weekday),m:(+o.hour%24)*60+(+o.minute)}}catch(e){var d=new Date();return{d:d.getDay(),m:d.getHours()*60+d.getMinutes()}}}
+ function wk(d){return d>=1&&d<=5}
+ function paint(){
+  var n=now(),open=wk(n.d)&&n.m>=O*60&&n.m<C*60,st,wh;
+  if(open){st='Open now';wh=(C*60-n.m<=60?'Closes soon · 6 PM':'Until 6 PM today')}
+  else{var nd=n.d,lab;if(wk(nd)&&n.m<O*60)lab='today';else{nd=(nd+1)%7;while(!wk(nd))nd=(nd+1)%7;lab=nd===(n.d+1)%7?'tomorrow':DN[nd]}st='Closed';wh='Opens '+lab+' at 7 AM'}
+  el.className='hours '+(open?'open':'closed');el.querySelector('[data-state]').textContent=st;el.querySelector('[data-when]').textContent=wh;
+  el.setAttribute('aria-label',st+'. '+wh+'. Hours Monday to Friday, 7 AM to 6 PM.');
+  var s2=document.querySelector('[data-state2]');if(s2){s2.className='hc-state '+(open?'open':'closed');s2.textContent=(open?'Open now · until 6 PM':'Closed now · '+wh)}
+  document.querySelectorAll('.hours-card tr').forEach(function(r){r.classList.toggle('today',+r.dataset.d===n.d)});
+ }
+ paint();setInterval(paint,60000);
+})();
+
 /* ---- Is it safe to drive? ---- */
 var P={
  lamp:'M12 3a8 8 0 0 0-8 8v3H2v2h20v-2h-2v-3a8 8 0 0 0-8-8zm-1 3h2v6h-2zm0 7h2v2h-2zM7 18h10v2H7z',
@@ -30,6 +48,9 @@ var P={
  key:'M7 9a5 5 0 1 1 4.6 6.9L10 17.5H8v2H6v2H2v-4l5.1-5.1A5 5 0 0 1 7 9zm5-1.5a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0z',
  gear:'M4 7h9l2-3h3l-2 3h4v3h-2l-1 7H5L4 10H2V7zm4 4v4h2v-4zm4 0v4h2v-4z',
  fan:'M12 10a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm1-8c4 0 5 3 3 6l-2 2.3a3 3 0 0 0-1.2-.3zm9 11c0 4-3 5-6 3l-2.3-2a3 3 0 0 0 .3-1.2zM11 22c-4 0-5-3-3-6l2-2.3a3 3 0 0 0 1.2.3zM2 11c0-4 3-5 6-3l2.3 2a3 3 0 0 0-.3 1.2z',
+ insp:'M9 2h6v2h3a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3zm0 4v1h6V6zm1.2 9.6L8 13.4l-1.4 1.4 3.6 3.6 6.4-6.4-1.4-1.4z',
+ tire2:'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 3a7 7 0 1 1 0 14 7 7 0 0 1 0-14zm0 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z',
+ tow:'M2 6h11v9h1.5l2-5H20l2 4v4h-2a2.5 2.5 0 0 1-5 0H8a2.5 2.5 0 0 1-5 0H2zm15.2 6h2.8l-1-2h-1z',
  ok:'M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'
 };
 function ic(k,c){return '<span class="oi'+(c?' '+c:'')+'" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="'+P[k]+'"/></svg></span>'}
@@ -41,7 +62,18 @@ var Q={
   ['It is making a noise','Grinding, knocking, squealing, humming','noise','noise'],
   ['Steam or another smell','Sweet, burning, rotten-egg','smoke','smell'],
   ['It drives, shifts or starts wrong','Pulling, shaking, slipping, won\'t start','wheel','feel'],
-  ['Nothing wrong, it is due for service','Maintenance or a check-up','cal','R:service']]},
+  ['Inspection, tires or routine service','State inspection, new tires, oil change','cal','due']]},
+ due:{q:'What do you need?',o:[
+  ['Virginia state inspection','Sticker due, or it didn\'t pass','insp','R:inspect'],
+  ['Tires','Worn tread, a flat, or new tires','tire2','tires'],
+  ['Oil change or routine maintenance','Or a check before a trip','cal','R:service'],
+  ['A tow to the shop','It won\'t start or isn\'t safe to drive','tow','R:tow']]},
+ tires:{q:'What is going on with the tires?',o:[
+  ['A bulge, cut or cord showing','On the sidewall or tread','tire2','R:bulge',1],
+  ['Flat, or keeps losing air','Or the tire pressure light','tire','R:tpms'],
+  ['Tread looks worn','Or it slides in the rain','tire2','R:tread'],
+  ['Shaking at speed','Started recently, or after a pothole','wheel','R:vibe'],
+  ['Just shopping for new tires','','tire2','R:newtires']]},
  light:{q:'Which light is on?',o:[
   ['Oil pressure','Red oil can','oil','R:oil',1,'lamp-r'],
   ['Engine temperature','Red thermometer, or the gauge reads hot','temp','R:hot',1,'lamp-r'],
@@ -127,10 +159,10 @@ var R={
   'Drive straight to the shop or home. Avoid shutting it off if you need it to restart.',
   '<b>If the temperature gauge also rises, pull over.</b> A broken belt can stop the cooling system too.',
   'Call today.'],'today','Warning light'],
- tpms:['today','Check tires first','Tire light: look at all four tires.',[
+ tpms:['today','Check tires first','Low tire or tire light: look at all four.',[
   '<b>If a tire looks flat or low, don\'t drive on it.</b> Put on the spare or call roadside help.',
   'If they look fine, check each tire with a gauge and fill to the pressure on the driver\'s door sticker.',
-  'If the light comes back within a day or two, you may have a slow leak. Call to have it checked.'],'today','Something else'],
+  'If it keeps losing air, or the light comes back within a day or two, you may have a slow leak. Call to have it checked.'],'today','Tires'],
  knock:['today',TODAY,'Engine knock: check the oil and take it easy.',[
   'Check the oil level on level ground. Low oil is a common cause of ticking or knocking.',
   '<b>A deep knock that gets louder means stop driving.</b> It can mean serious engine damage. Have it towed.',
@@ -194,13 +226,36 @@ var R={
   'Usually safe to drive. But if the defroster won\'t clear the windshield, wait until you can see clearly.',
   '<b>If the heat quits and the temperature gauge climbs, pull over.</b> That is an overheating problem.',
   'Book a visit to find the cause.'],'book','Heat or A/C'],
+ inspect:['book','Book a visit','Virginia state inspection: a quick self-check first.',[
+  'Look at the sticker on your windshield. It shows when the current inspection runs out.',
+  'Before you come in, walk around the car: <b>headlights, brake lights and turn signals working</b>, horn works, wipers clear the glass, no big cracks in your view, and tires with good tread.',
+  'Anything not working? Mention it when you book, so it can be checked during the visit.',
+  'Leave your name and car below, or call to ask about timing.'],'book','State inspection'],
+ tread:['book','Book soon','Worn tread: check it with a penny.',[
+  'Put a penny upside down in the tread. <b>If you can see all of Lincoln\'s head, the tread is worn out</b> and it is time for new tires.',
+  'Worn tires take longer to stop and slide more on wet roads. Slow down in the rain until they are replaced.',
+  'Uneven wear on one edge can mean the alignment is off. Ask to have it checked with the new tires.',
+  'Book a visit, or call to ask what fits your car.'],'book','Tires'],
+ bulge:['stop',STOP,'Bulge or cord showing: don\'t drive on that tire.',[
+  '<b>A bulge or exposed cord means the tire can fail suddenly.</b> Pull over somewhere safe.',
+  'Put on the spare if you can do it safely, away from traffic. Many spares are only meant for short, slow trips.',
+  'No spare, or not safe to change it? Call for a tow.'],'tow','Tires'],
+ newtires:['book','Book a visit','Shopping for tires.',[
+  'The garage is an independent Goodyear tire dealer.',
+  'Have your tire size handy. It is printed on the tire sidewall and on the sticker inside the driver\'s door, for example 225/65R17.',
+  'Tell them how you drive: mostly highway, back roads, towing, or winter trips.',
+  'Book a visit, or call to ask what fits your car.'],'book','Tires'],
+ tow:['today','Call the shop','Need a tow: call first.',[
+  '<b>If you are on the side of the road, turn on your hazard lights</b> and wait somewhere safe, away from traffic.',
+  'Have ready: where the car is, the year, make and model, and what happened.',
+  'Call the garage to ask about getting it towed in.'],'tow','Need a tow'],
  service:['book','Book a visit','Let\'s get it on the calendar.',[
   'Oil changes, brake checks, alignment, and getting ready for a trip or the season.',
   'Leave your name and car in the form below, or call.'],'book','Routine maintenance']
 };
 var CTA={
  '911':'<button class="btn btn-red demo-911" type="button">Call 911</button><button class="btn btn-line demo" type="button">Later: call the garage</button>',
- tow:'<button class="btn btn-red demo" type="button">Call the garage</button><a class="btn btn-line" href="#quote" data-pref>Request a callback</a>',
+ tow:'<button class="btn btn-red demo" type="button">Call the garage about a tow</button><a class="btn btn-line" href="#quote" data-pref>Request a callback</a>',
  today:'<button class="btn btn-sig demo" type="button">Call the garage</button><a class="btn btn-line" href="#quote" data-pref>Request a callback</a>',
  book:'<a class="btn btn-ink" href="#quote" data-pref>Book a visit</a><button class="btn btn-line demo" type="button">Call instead</button>'
 };
@@ -233,6 +288,9 @@ ask('start',false);
 var dl=location.search.match(/[?&]check=(\w+)/);
 if(dl&&R[dl[1]]){hist=['start'];result(dl[1],false);box.classList.add('in')}
 
+/* dock stays out of the way while the hero buttons are on screen */
+var dock=document.querySelector('.dock'),hc=document.querySelector('.hero .cta');
+if(dock&&hc&&'IntersectionObserver' in window){new IntersectionObserver(function(es){dock.classList.toggle('away',es[0].isIntersecting)}).observe(hc)}
 document.querySelector('.lead').addEventListener('submit',function(e){e.preventDefault();this.querySelector('.done').hidden=false});
 if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)})}else document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
 if(/[?&]shot=1/.test(location.search))document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});

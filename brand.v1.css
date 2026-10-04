@@ -1,0 +1,41 @@
+/* Mike's Web Rehab — brand v1: logo header, footer lockup (loaded after theme.v2) */
+.site-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  max-width: 26rem; margin: 0 auto; padding: 1rem 1.25rem 0;
+}
+.site-header .brand { display: inline-flex; align-items: center; min-height: 44px; border-radius: .5rem; }
+.site-header .brand img { display: block; height: 36px; width: auto; }
+.header-call {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem; flex: none;
+  min-width: 44px; min-height: 44px; padding: 0 .7rem; border-radius: 999px;
+  color: var(--gw-ink, #1d2733) !important; text-decoration: none; font-weight: 700; font-size: .95rem;
+  background: rgba(255,255,255,.72); border: 1px solid rgba(255,255,255,.9);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  box-shadow: 0 6px 18px rgba(70,110,140,.12);
+}
+.header-call-ico { width: 18px; height: 18px; fill: var(--gw-teal, #0f8b94); flex: none; }
+.header-call-txt { font-variant-numeric: tabular-nums; letter-spacing: .01em; }
+.header-call:hover { background: rgba(255,255,255,.9); }
+.header-call:focus-visible, .site-header .brand:focus-visible { outline: 3px solid #0b6d75; outline-offset: 3px; }
+@media (max-width: 479px) {
+  .header-call { padding: 0; width: 44px; }
+  .header-call-txt { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+/* hero sits a little closer now that the header carries the brand */
+.bio { padding-top: 1.35rem; }
+
+/* footer sign-off: stacked lockup, centred */
+.flow-footer { text-align: center; }
+.flow-footer .footer-logo { display: block; width: 196px; height: auto; margin: .6rem auto 1.1rem; }
+
+@media (min-width: 760px) {
+  .site-header { max-width: 30rem; }
+  .flow-footer .footer-logo { width: 220px; }
+}
+@media (min-width: 900px) {
+  .site-header { max-width: 72rem; padding: 1.1rem 2rem 0; }
+  .site-header .brand img { height: 42px; }
+  .header-call { padding: 0 1.05rem 0 .9rem; }
+  .bio { padding-top: clamp(1.25rem, 2.5vh, 2.5rem); }
+  .bio .section-label { margin-top: 2rem; }
+}

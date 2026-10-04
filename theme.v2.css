@@ -1,0 +1,10 @@
+/* v2: photo-quality wave backdrop (replaces the drawn SVG) */
+html { background: #f1f3f6 !important; }
+body::before {
+  background: #f1f3f6 url("assets/waves-desk.v2.webp") center center / cover no-repeat !important;
+}
+@media (max-width: 700px) {
+  body::before { background: #f1f3f6 url("assets/waves-phone.v2.webp") 22% center / cover no-repeat !important; }
+}
+/* cleaner glass: whiter, crisper edge, lighter shadow like the template */
+:root { --gw-glass: rgba(255,255,255,.72); --gw-shadow: 0 18px 50px rgba(70,110,140,.12), 0 1px 2px rgba(70,110,140,.06); }

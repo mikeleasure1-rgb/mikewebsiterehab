@@ -18,6 +18,8 @@
     b.addEventListener("click", function () { show(b.dataset.go); });
   });
 
+  if (location.hash === "#after") show("after");
+
   // Swipe left/right on the phone screen
   var screen = document.querySelector(".screen"), x0 = null, y0 = null;
   screen.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });

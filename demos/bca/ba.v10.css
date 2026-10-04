@@ -117,3 +117,6 @@ a:focus-visible, button:focus-visible, .view-after:focus-visible {
 }
 @media (prefers-reduced-motion: reduce) { .sticky-one { transition: none; } }
 @media (max-width: 340px) { h1 { white-space: normal; } }
+
+.view-after:has(.live-site){max-height:none;overflow:hidden}
+.live-site{display:block;width:100%;height:clamp(440px,calc(100vh - 300px),720px);height:clamp(440px,calc(100svh - 300px),720px);border:0;background:#0b1220}

@@ -88,3 +88,5 @@ footer a{color:var(--ink)}
 .dial b{font-family:var(--d);font-size:5.5rem;line-height:1;font-weight:800;letter-spacing:-.04em}
 .dial span{font-size:.85rem;color:#3ddc97;font-weight:700;margin-top:.3rem}}
 @keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:370px){.pill-call{font-size:.76rem;padding:.55rem .75rem;white-space:nowrap}.brand .name{font-size:.95rem}.brand .name small{font-size:.58rem}}

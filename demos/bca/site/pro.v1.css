@@ -124,3 +124,5 @@ footer a{color:var(--ink)}
 .verdict h3{margin:0 0 .3rem;font-size:1.15rem}.verdict .tip{margin:0 0 .5rem;color:var(--muted)}
 .verdict .math{margin:0 0 .9rem;font-variant-numeric:tabular-nums;font-size:.8rem;font-weight:700;color:var(--ink);opacity:.7}
 @media (min-width:720px){.rr-grid{grid-template-columns:170px 1fr}.gauge{width:170px;height:170px}}
+
+@media(max-width:370px){.pill-call{font-size:.76rem;padding:.55rem .75rem;white-space:nowrap}.brand .name{font-size:.95rem}.brand .name small{font-size:.58rem}}

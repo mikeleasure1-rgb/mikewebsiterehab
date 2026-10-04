@@ -343,3 +343,47 @@ a:focus-visible, button:focus-visible { outline: 3px solid #0b6d75; outline-offs
   .flow .how ol { grid-template-columns: 1fr 1fr; column-gap: 2.5rem; padding: 1.1rem 1.25rem 1.1rem 2.4rem; }
 }
 .bio h2 { text-wrap: balance; }
+
+/* ---- v13 wide desktop: two-column hero, one shared page width ---- */
+@media (min-width: 900px) {
+  .bio, .flow, .flow-footer { max-width: 72rem; padding-left: 2rem; padding-right: 2rem; }
+  .bio {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+    column-gap: clamp(2.5rem, 5vw, 4.5rem);
+    align-items: center;
+    padding-top: clamp(3rem, 7vh, 4.5rem);
+    padding-bottom: 2rem;
+    text-align: left;
+  }
+  .bio .hero-copy { grid-column: 1; }
+  .bio .promise { grid-column: 2; margin: 0; padding: 1.6rem 1.7rem 1.3rem; }
+  .bio .section-label, .bio .links { grid-column: 1 / -1; }
+
+  .bio .kicker { font-size: 0.78rem; margin-bottom: 0.85rem; }
+  .bio h1 { font-size: clamp(2.6rem, 4.2vw, 3.6rem); white-space: nowrap; line-height: 1.02; letter-spacing: -0.03em; margin-bottom: 0.8rem; }
+  .bio .tag { font-size: 1.25rem; margin-bottom: 0.4rem; }
+  .bio .handle { margin-bottom: 1.6rem; }
+  .bio .handle a { font-size: 1.02rem; }
+  .bio .hero-cta { display: inline-flex; width: auto; min-height: 58px; padding: 0.95rem 2rem; font-size: 1.05rem; }
+  .bio .hero-sub { margin: 0.8rem 0 0; font-size: 0.95rem; }
+
+  .bio .promise h2 { font-size: 1.4rem; margin-bottom: 1.1rem; }
+  .bio .promise ul { gap: 0.95rem; }
+  .bio .promise li { font-size: 0.95rem; text-wrap: pretty; }
+  .bio .promise li.free { margin-top: 0.25rem; padding: 0.95rem 1.1rem !important; }
+
+  .bio .section-label { margin: 2.75rem 0 0.7rem; }
+  .bio .links { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+  .bio .link { display: flex; flex-direction: column; justify-content: center; min-height: 5.25rem; padding: 1.05rem 1.3rem; font-size: 1.05rem; }
+  .bio .link-title { font-size: 1.1rem; }
+
+  .flow .demos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .flow .plans { gap: 1.5rem; }
+  .flow section { padding: 2.25rem 0; }
+  .flow section:first-child { padding-top: 1.5rem; }
+  .flow h2 { font-size: 1.6rem; }
+}
+@media (min-width: 900px) {
+  .flow-footer { max-width: 68rem; width: calc(100% - 4rem); padding-left: 0; padding-right: 0; }
+}

@@ -1,0 +1,34 @@
+/* Desktop call card: button shows number + popover with copy + QR */
+a.is-number { font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+a.num-swap { transition: opacity .18s ease; }
+a.num-swap.fading { opacity: 0; }
+.call-pop {
+  position: fixed; z-index: 1000; width: 300px; box-sizing: border-box;
+  background: #fff; color: #1a1a18; border: 1px solid #e6e0d6; border-radius: 1.1rem;
+  box-shadow: 0 18px 50px rgba(13,92,99,.18), 0 2px 8px rgba(0,0,0,.06);
+  padding: 1.1rem 1.15rem 1rem; font-family: "DM Sans", system-ui, sans-serif;
+  opacity: 0; transform: translateY(6px) scale(.98); transition: opacity .18s ease, transform .18s ease;
+}
+.call-pop.open { opacity: 1; transform: none; }
+.call-pop .cp-eyebrow { margin: 0 0 .2rem; font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #0d5c63; }
+.call-pop .cp-num { margin: 0 0 .7rem; font-family: "Fraunces", Georgia, serif; font-size: 1.75rem; font-weight: 700; letter-spacing: .01em; }
+.call-pop .cp-num a { color: inherit; text-decoration: none; }
+.call-pop .cp-row { display: flex; gap: .5rem; margin-bottom: .85rem; }
+.call-pop .cp-copy {
+  flex: 1; border: 0; cursor: pointer; border-radius: 999px; padding: .65rem .9rem;
+  background: #0d5c63; color: #fff; font: 700 .9rem "DM Sans", system-ui, sans-serif;
+}
+.call-pop .cp-copy:hover { background: #0a4a50; }
+.call-pop .cp-copy.done { background: #1f7a4d; }
+.call-pop .cp-qr { display: flex; gap: .85rem; align-items: center; padding-top: .85rem; border-top: 1px solid #e6e0d6; }
+.call-pop .cp-qr img { width: 92px; height: 92px; border-radius: .5rem; background: #fff; border: 1px solid #e6e0d6; padding: 4px; }
+.call-pop .cp-qr p { margin: 0; font-size: .85rem; color: #6b6560; line-height: 1.35; }
+.call-pop .cp-qr strong { display: block; color: #1a1a18; font-size: .92rem; margin-bottom: .15rem; }
+.call-pop .cp-close {
+  position: absolute; top: .55rem; right: .6rem; width: 28px; height: 28px; border: 0; border-radius: 50%;
+  background: transparent; color: #6b6560; font-size: 1.15rem; line-height: 1; cursor: pointer;
+}
+.call-pop .cp-close:hover { background: #f6f3ee; color: #1a1a18; }
+.call-pop:focus { outline: none; }
+.call-pop .cp-copy:focus { outline: none; }
+.call-pop .cp-copy:focus-visible { box-shadow: 0 0 0 3px #fff, 0 0 0 5px rgba(13,92,99,.45); }

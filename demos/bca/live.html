@@ -7,28 +7,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="DEMO: warm mobile HVAC homepage for BCA Climate Control. Not affiliated." />
   <title>BCA Climate Control | DEMO — not affiliated</title>
+  <script>if (/[?&]shot=1\b/.test(location.search)) document.documentElement.classList.add("shot");</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.v9.css" />
+  <link rel="stylesheet" href="styles.v10.css" />
 </head>
 <body>
-  <div class="demo-banner" role="status">
+  <div class="demo-banner">
     DEMO — example only. Not affiliated with this business.
   </div>
+  <p class="demo-line"><a href="../../offers/">Demo · Want this on your site? →</a></p>
 
   <header class="top">
     <a class="logo" href="#top">BCA <span>Climate Control</span></a>
-    <a class="call-pill" href="tel:+15402839622">Call 540-283-9622</a>
+    <button class="call-pill demo-call" type="button">Call 540-283-9622</button>
   </header>
 
   <main id="top">
+    <div class="why-wrap">
+      <button class="why-chip" type="button" aria-expanded="false" aria-controls="why">Why this converts</button>
+      <ol class="why" id="why" hidden>
+        <li><strong>Call Now in the thumb zone.</strong> Bottom of the screen, always one tap away.</li>
+        <li><strong>Trust before the fold.</strong> Area and core services — before any scrolling.</li>
+        <li><strong>One job per screen.</strong> Repair, then callback, then service area. No clutter.</li>
+      </ol>
+    </div>
+
     <section class="hero">
       <p class="eyebrow">Fredericksburg · Stafford · Woodbridge</p>
       <h1>Comfort that shows up when the weather doesn’t.</h1>
       <p class="lede">Heating, AC, and water heaters for local homes and shops — clear next step on every phone.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="tel:+15402839622">Call Now</a>
+        <button class="btn btn-primary demo-call" type="button">Call Now</button>
         <a class="btn btn-ghost" href="#quote">Request Service</a>
       </div>
       <ul class="trust">
@@ -68,7 +79,7 @@
     <section class="quote" id="quote">
       <h2>Need a tech?</h2>
       <p>Call now or leave a number for a callback.</p>
-      <form class="lead" action="#" method="get">
+      <form class="lead" action="#" method="get" novalidate>
         <label>Name <input type="text" name="name" autocomplete="name" required /></label>
         <label>Phone <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required /></label>
         <label>Need
@@ -81,19 +92,24 @@
           </select>
         </label>
         <button class="btn btn-primary" type="submit">Request callback</button>
-        <p class="form-note">DEMO form — not connected.</p>
+        <div class="form-done" role="status" aria-live="polite" hidden>
+          <p><strong>On a live site the shop gets this immediately.</strong></p>
+          <p><a href="../../offers/">Want the form that actually sends? →</a></p>
+        </div>
       </form>
-      <a class="btn btn-call-block" href="tel:+15402839622">Or tap to call 540-283-9622</a>
+      <button class="btn btn-call-block demo-call" type="button">Or tap to call 540-283-9622</button>
     </section>
   </main>
 
   <footer>
     <p><strong>BCA Climate Control</strong> · DEMO concept</p>
-    <p>Listing phone: <a href="tel:+15402839622">540-283-9622</a></p>
-    <p class="fine">DEMO — not affiliated. Built by <a href="https://instagram.com/mikewebsiterehab">@mikewebsiterehab</a> · 703-594-1785</p>
+    <p>Listing phone: 540-283-9622</p>
+    <p class="fine">DEMO — not affiliated. Built by <a href="https://instagram.com/mikewebsiterehab">@mikewebsiterehab</a> · <a href="tel:+17035941785">703-594-1785</a></p>
   </footer>
 
-  <script src="script.js"></script>
-  <a class="sticky-one" href="tel:+17035941785">Tap for a 10-min phone walkthrough</a>
+  <button class="sticky-call demo-call" type="button" aria-label="Call Now (demo — does not dial)">Call Now</button>
+  <div class="toast" role="status" aria-live="polite" hidden>On the real site this calls the shop. This demo does not.</div>
+
+  <script src="script.v10.js"></script>
 </body>
 </html>

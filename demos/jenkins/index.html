@@ -5,43 +5,60 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="DEMO: Google sent customers to a casino. Here is a clean HVAC Call Now homepage instead." />
-  <title>Before &amp; after · casino redirect → HVAC Call Now</title>
+  <meta name="description" content="DEMO: an HVAC shop's domain was serving a casino page. Here is what the fixed phone homepage looks like." />
+  <title>Their domain opened a casino · before &amp; after DEMO</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="ba.v9.css" />
+  <link rel="stylesheet" href="ba.v10.css" />
 </head>
 <body>
   <div class="demo-banner">DEMO — not affiliated with this business. Example rebuild by Mike’s Web Rehab.</div>
   <header class="bar">
-    <a class="back" href="../../">← Home</a>
-    <a class="call" href="tel:+17035941785">10-min walkthrough</a>
+    <a class="fwd" href="../../offers/">Offers →</a>
+    <a class="call" href="tel:+17035941785">Call Michael</a>
   </header>
   <main>
-    <p class="eyebrow">What customers saw · what fixed looks like</p>
-    <h1>Google sent them to a casino → clean HVAC Call Now</h1>
-    <p class="lede">Their real domain opened a gambling site. Below: that fail, then a phone-ready shop homepage.</p>
+    <h1>Their domain opened a casino.</h1>
 
-    <div class="compare">
-      <section class="shot">
-        <span class="badge before">Before</span>
-        <h2>Customers landed on a casino</h2>
-        <p class="cap">Not heating. Not AC. An online gambling page on the shop’s web address.</p>
-        <div class="frame"><img src="before.png" alt="Before: shop domain showing online casino spam" width="390" height="844" /></div>
-      </section>
-
-      <section class="shot">
-        <span class="badge after">After</span>
-        <h2>Fixed on mobile — warm, clear Call Now</h2>
-        <p class="cap">Bright HVAC homepage with tap-to-call and clear next steps.</p>
-        <div class="frame"><img src="after.v9.png" alt="After: clean HVAC mobile homepage with Call Now" width="390" height="844" /></div>
-        <a class="open" href="live.html">Try the interactive DEMO →</a>
-      </section>
+    <div class="phone" id="phone">
+      <div class="seg" role="group" aria-label="Show before or after">
+        <button type="button" class="seg-btn" data-view="before" aria-pressed="true">Before</button>
+        <button type="button" class="seg-btn" data-view="after" aria-pressed="false">After</button>
+      </div>
+      <div class="screen">
+        <div class="view" id="view-before">
+          <img src="before-crop.v10.png" alt="Before: the HVAC shop's web address showing a 'Best Online Casinos Australia' gambling page" width="390" height="284" />
+        </div>
+        <div class="view view-after" id="view-after" hidden tabindex="0" aria-label="After screenshot, scrollable">
+          <img src="after.v10.png" alt="After: clean HVAC phone homepage with Call Now, services, service area and callback form" width="390" height="2270" loading="lazy" />
+        </div>
+      </div>
     </div>
 
-    <p class="note">This is a labeled DEMO for walkthroughs — not a claim that we rebuilt this shop live.</p>
+    <div class="cap" id="cap-before">
+      <p><strong>This was the shop’s address. Not a popup.</strong></p>
+      <p class="sub"><button type="button" class="linkish" data-go="after">See the fix →</button> · <a href="before.png">full screenshot</a></p>
+    </div>
+    <div class="cap" id="cap-after" hidden>
+      <p><strong>Same address, rebuilt for the phone.</strong> Scroll inside the frame.</p>
+      <p class="sub"><a href="live.html">Try the interactive demo →</a></p>
+    </div>
+
+    <section class="next" id="next" aria-label="What changed">
+      <ul class="beats">
+        <li>Domain was serving a gambling page, not heat or AC.</li>
+        <li>Put back: tap-to-call, services, service area, callback.</li>
+        <li>This is an Emergency Rebuild, $2,500–$5,500.</li>
+      </ul>
+      <div class="ctas">
+        <a class="btn btn-main" href="../../offers/">See what this costs →</a>
+        <a class="btn btn-alt" href="../bca/">See the suspended-site demo →</a>
+      </div>
+      <p class="home"><a href="../../">Mike’s Web Rehab home</a></p>
+    </section>
   </main>
-  <a class="sticky-one" href="tel:+17035941785">Tap for a 10-min phone walkthrough</a>
+  <a class="sticky-one" id="sticky" href="tel:+17035941785" aria-hidden="true" tabindex="-1">Want this on your homepage?</a>
+  <script src="ba.v10.js"></script>
 </body>
 </html>

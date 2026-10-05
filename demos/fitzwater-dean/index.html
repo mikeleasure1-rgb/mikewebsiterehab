@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="data:," />
+  <meta name="robots" content="noindex" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="DEMO: fitzdean.com is a fixed-width CCH Site Builder page that clips on phones. Here is a mobile-readable CPA rebuild." />
+  <title>Fixed-width site clips on phones · before &amp; after DEMO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="ba.v10.css" />
+  <link rel="stylesheet" href="../../call.v2.css" />
+  <link rel="stylesheet" href="../../theme.v1.css">
+  <link rel="stylesheet" href="../../theme.v2.css">
+</head>
+<body>
+  <div class="demo-banner">DEMO — not affiliated with this business. Example rebuild by Mike’s Web Rehab.</div>
+  <header class="bar">
+    <a class="fwd" href="../../#offers">Pricing →</a>
+    <a class="call" href="tel:+17035941785">Call Michael</a>
+  </header>
+  <main>
+    <h1>Fixed-width site clips on phones.</h1>
+
+    <div class="phone" id="phone">
+      <div class="seg" role="group" aria-label="Show before or after">
+        <button type="button" class="seg-btn" data-view="before" aria-pressed="true">Before</button>
+        <button type="button" class="seg-btn" data-view="after" aria-pressed="false">After</button>
+      </div>
+      <div class="screen">
+        <div class="view" id="view-before">
+          <img src="before-crop.v10.png" alt="Before: fitzdean.com on a phone — fixed-width layout clips header, nav, and body text" width="390" height="473" />
+        </div>
+        <div class="view view-after" id="view-after" hidden tabindex="0" aria-label="After: the new site, live">
+          <iframe class="live-site" src="site/" title="After: the rebuilt homepage, live and tappable"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="cap" id="cap-before">
+      <p><strong>fitzdean.com today. Clipped on a phone.</strong></p>
+      <p class="sub"><button type="button" class="linkish" data-go="after">See the fix →</button> · <a href="before.png">full screenshot</a></p>
+    </div>
+    <div class="cap" id="cap-after" hidden>
+      <p><strong>Rebuilt for the phone.</strong> This is the real new site. Scroll and tap inside the phone.</p>
+      <p class="sub"><a href="site/">Open it full screen →</a></p>
+    </div>
+
+    <section class="next" id="next" aria-label="What changed">
+      <ul class="beats">
+        <li>Fixed-width CCH Site Builder — phone viewport clips header, nav, and body text.</li>
+        <li>Large empty grey sidebar wastes the screen; dated layout.</li>
+        <li>Put back: readable on phones, their (703) 878-2222 on the page (display only in this demo), Woodbridge CPA services, a tax-season “what to bring” checklist, a callback form.</li>
+        <li>This is a Site Rehab, starting at $1,500.</li>
+      </ul>
+      <div class="ctas">
+        <a class="btn btn-main" href="../../#offers">See what this costs →</a>
+        <a class="btn btn-alt" href="../barahona/">See another local demo →</a>
+      </div>
+      <p class="home"><a href="../../">Mike’s Web Rehab home</a></p>
+    </section>
+  </main>
+  <a class="sticky-one" id="sticky" href="tel:+17035941785" aria-hidden="true" tabindex="-1">Want this on your homepage?</a>
+  <script src="ba.v10.js"></script>
+  <script src="../../call.v2.js" defer></script>
+</body>
+</html>

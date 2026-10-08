@@ -10,8 +10,8 @@
   --banner: #2c4a5a;
   --danger: #b91c1c;
   --pad: 1rem;
-  --font: "DM Sans", system-ui, sans-serif;
-  --display: "Fraunces", Georgia, serif;
+  --font: "DM Sans", "DM Sans Fallback", system-ui, sans-serif;
+  --display: "Fraunces", "Fraunces Fallback", Georgia, serif;
 }
 * { box-sizing: border-box; }
 body {
